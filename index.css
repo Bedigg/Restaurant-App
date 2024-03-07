@@ -90,6 +90,11 @@ header p{
     font-size: small;
 }
 
+button{
+    cursor: pointer;
+    border: none;
+    background: #fff;
+}
 
 /* Cart/Order Details */
 .cart-item-container{
