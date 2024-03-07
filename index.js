@@ -4,6 +4,10 @@ const cartEl = document.getElementById('cart')
 const cartContainer = document.getElementById('cart-item-container')
 const paymentModal = document.getElementById('payment-modal')
 const paymentForm = document.getElementById('payment-form')
+const inputElOne= document.getElementById('input-el-one')
+const inputElTwo= document.getElementById('input-el-two')
+const inputElThree= document.getElementById('input-el-three')
+
 
 let cartArray = []
 const thanksMessage=document.getElementById('confirmation-msg')
@@ -62,9 +66,13 @@ function handleCompleteOrderBtn() {
 
 function handlePayBtn(paymentData) {
     let name = paymentData.get('name').split(" ")
-    thanksMessage.innerHTML = `Thanks, ${name[0]}! Your order is on its way!`
+    thanksMessage.textContent = `Thanks, ${name[0]}! Your order is on its way!`
     paymentModal.classList.add('hidden')
     cartContainer.classList.add('hidden')
+    inputElOne.value =''
+    inputElTwo.value =''
+    inputElThree.value =''
+    
     document.getElementById('thank-you-card').classList.remove('hidden')
     render()
 
@@ -98,7 +106,7 @@ function getMenuItems() {
                     <p class="price">$${item.price}</p>
                 </div>
             </div>
-            <i class="fa-solid fa-plus" data-add="${item.id}"></i>
+            <button><i class="fa-solid fa-plus" data-add="${item.id}"></i></button>
         </div>`
     })
     return menuItems
