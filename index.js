@@ -12,11 +12,15 @@ const inputElThree= document.getElementById('input-el-three')
 let cartArray = []
 const thanksMessage=document.getElementById('confirmation-msg')
 
+
+
 paymentForm.addEventListener('submit', e => {
 e.preventDefault()
 const paymentFormData = new FormData(paymentForm)
         handlePayBtn(paymentFormData)
 });
+
+
 
 document.addEventListener('click', e => {
     if (e.target.dataset.add) {
