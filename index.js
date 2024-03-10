@@ -12,6 +12,12 @@ const inputElThree= document.getElementById('input-el-three')
 let cartArray = []
 const thanksMessage=document.getElementById('confirmation-msg')
 
+paymentForm.addEventListener('submit', e => {
+e.preventDefault()
+const paymentFormData = new FormData(paymentForm)
+        handlePayBtn(paymentFormData)
+});
+
 document.addEventListener('click', e => {
     if (e.target.dataset.add) {
         handleAddItemToCart(e.target.dataset.add)
@@ -22,16 +28,13 @@ document.addEventListener('click', e => {
     if (e.target.id === 'complete-order-btn') {
         handleCompleteOrderBtn()
     }
+    
     if (e.target.id === 'close-modal-btn') {
         handleCloseModalBtn()
     }
 })
 
-paymentForm.addEventListener('submit', e => {
-e.preventDefault()
-const paymentFormData = new FormData(paymentForm)
-        handlePayBtn(paymentFormData)
-});
+
 
 
 function handleAddItemToCart(itemId) {
@@ -144,9 +147,6 @@ function getCartTotal() {
     })
     return total
 }
-
-
-render()    
 
 
 render()    
