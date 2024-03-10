@@ -22,18 +22,17 @@ document.addEventListener('click', e => {
     if (e.target.id === 'complete-order-btn') {
         handleCompleteOrderBtn()
     }
-    
     if (e.target.id === 'pay-btn') {
         e.preventDefault()
-const paymentFormData = new FormData(paymentForm)
+        const paymentFormData = new FormData(paymentForm)
         handlePayBtn(paymentFormData)
     }
-    
     if (e.target.id === 'close-modal-btn') {
         handleCloseModalBtn()
     }
 })
-                             
+
+
 
 function handleAddItemToCart(itemId) {
     const cartItem = menuArray.filter(item => {
@@ -67,7 +66,7 @@ function handleCompleteOrderBtn() {
 
 function handlePayBtn(paymentData) {
     let name = paymentData.get('name').split(" ")
-    thanksMessage.textContent = `Thanks, ${name[0]}! Your order is on its way!`
+    thanksMessage.innerHTML = `Thanks, ${name[0]}! Your order is on its way!`
     paymentModal.classList.add('hidden')
     cartContainer.classList.add('hidden')
     inputElOne.value =''
@@ -107,7 +106,7 @@ function getMenuItems() {
                     <p class="price">$${item.price}</p>
                 </div>
             </div>
-            <button><i class="fa-solid fa-plus" data-add="${item.id}"></i></button>
+            <i class="fa-solid fa-plus" data-add="${item.id}"></i>
         </div>`
     })
     return menuItems
@@ -145,6 +144,9 @@ function getCartTotal() {
     })
     return total
 }
+
+
+render()    
 
 
 render()    
