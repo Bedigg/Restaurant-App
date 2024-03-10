@@ -66,7 +66,7 @@ function handleRemoveItemBtn(itemId) {
 
 function handleCompleteOrderBtn() {
     paymentModal.classList.remove('hidden')
-    thanksMessage.classList.remove('hidden')
+    thanksMessage.classList.add('hidden')
     cartArray = []
     render()
 }
