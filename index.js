@@ -24,21 +24,16 @@ document.addEventListener('click', e => {
     }
     
     if (e.target.id === 'pay-btn') {
-        pay()
+        e.preventDefault()
+const paymentFormData = new FormData(paymentForm)
+        handlePayBtn(paymentFormData)
     }
     
     if (e.target.id === 'close-modal-btn') {
         handleCloseModalBtn()
     }
 })
-
-function pay(){
-paymentForm.addEventListener('submit', (e) => {
-e.preventDefault()
-const paymentFormData = new FormData(paymentForm)
-        handlePayBtn(paymentFormData)
-}
-                             }
+                             
 
 function handleAddItemToCart(itemId) {
     const cartItem = menuArray.filter(item => {
