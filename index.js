@@ -73,6 +73,7 @@ function handleCompleteOrderBtn() {
 
 function handlePayBtn(paymentData) {
     let name = paymentData.get('name').split(" ")
+        thanksMessage.classList.remove('hidden')
     thanksMessage.innerHTML = `Thanks, ${name[0]}! Your order is on its way!`
     paymentModal.classList.add('hidden')
     cartContainer.classList.add('hidden')
